@@ -10,6 +10,17 @@ export default function SearchTopics({ topics, questions, topicColors }) {
     topic.toLowerCase().includes(search.toLowerCase())
   );
 
+  const cardBgs = [
+    'bg-blue-100 border-blue-200',
+    'bg-emerald-100 border-emerald-200',
+    'bg-amber-100 border-amber-200',
+    'bg-rose-100 border-rose-200',
+    'bg-indigo-100 border-indigo-200',
+    'bg-violet-100 border-violet-200',
+    'bg-cyan-100 border-cyan-200',
+    'bg-orange-100 border-orange-200',
+  ];
+
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-200 pb-6">
@@ -38,9 +49,9 @@ export default function SearchTopics({ topics, questions, topicColors }) {
 
       {filteredTopics.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
-          {filteredTopics.map((topic) => (
+          {filteredTopics.map((topic, index) => (
             <Link key={topic} href={`/quiz/${topic}`} className="group relative">
-              <div className="h-full bg-white border border-slate-200 p-4 md:p-8 rounded-xl md:rounded-[2rem] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:border-blue-200 relative overflow-hidden flex flex-col justify-between min-h-[130px] md:min-h-[200px]">
+              <div className={`h-full ${cardBgs[index % cardBgs.length]} border p-4 md:p-8 rounded-xl md:rounded-[2rem] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:bg-white group-hover:border-blue-200 relative overflow-hidden flex flex-col justify-between min-h-[130px] md:min-h-[200px]`}>
                 <div className={`absolute -right-8 -bottom-8 w-24 h-24 md:w-48 md:h-48 bg-gradient-to-br ${topicColors[topic.toLowerCase()] || topicColors.default} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`}></div>
                 
                 <div>
