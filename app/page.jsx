@@ -28,7 +28,7 @@ export default async function Home() {
     html: 'from-orange-500 to-red-600',
     nodejs: 'from-emerald-500 to-green-700',
     default: 'from-indigo-500 to-purple-600'
-  };
+  };  
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-100">
@@ -36,15 +36,10 @@ export default async function Home() {
       <div className="relative overflow-hidden pt-12 pb-10 md:pt-20 md:pb-16 px-4 md:px-8">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/50 blur-[100px] rounded-full -z-10"></div>
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-block px-3 py-1 mb-4 bg-blue-600/10 border border-blue-600/20 rounded-full text-blue-700 text-[10px] md:text-xs font-black tracking-widest uppercase">
-            Elevate Your Career
-          </div>
           <h1 className="text-4xl md:text-8xl font-black mb-4 tracking-tighter leading-none text-slate-800">
             Quizify <span className="text-blue-600">Pro</span>
           </h1>
-          <p className="max-w-xl mx-auto text-sm md:text-xl text-slate-500 leading-relaxed font-medium px-2">
-            The ultimate technical assessment platform. Master industry-leading technologies through curated, high-impact MCQ sessions.
-          </p>
+        
         </div>
       </div>
 

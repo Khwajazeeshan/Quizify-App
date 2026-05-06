@@ -3,10 +3,21 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 
+// Fisher-Yates shuffle algorithm for unbiased randomization
+function shuffleArray(array) {
+  if (!array || !Array.isArray(array)) return [];
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function QuizClient({ topic, topicQuestions }) {
   // Shuffle questions once on mount
   const shuffledQuestions = useMemo(() => {
-    return [...topicQuestions].sort(() => Math.random() - 0.5);
+    return shuffleArray(topicQuestions);
   }, [topicQuestions]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -21,8 +32,8 @@ export default function QuizClient({ topic, topicQuestions }) {
 
   // Shuffle options for the current question
   const shuffledOptions = useMemo(() => {
-    if (!currentQuestion) return [];
-    return [...currentQuestion.options].sort(() => Math.random() - 0.5);
+    if (!currentQuestion?.options) return [];
+    return shuffleArray(currentQuestion.options);
   }, [currentQuestion]);
 
   const handleAnswerClick = (option) => {
