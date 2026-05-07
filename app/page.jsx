@@ -33,10 +33,10 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden pt-12 pb-10 md:pt-20 md:pb-16 px-4 md:px-8">
+      <div className="relative overflow-hidden pt-12 pb-10 md:pt-20 md:pb-12 px-4 md:px-8">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/50 blur-[100px] rounded-full -z-10"></div>
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-8xl font-black mb-4 tracking-tighter leading-none text-slate-800">
+          <h1 className="text-4xl md:text-8xl font-black mb-2 tracking-tighter leading-none text-slate-800">
             Quizify <span className="text-blue-600">Pro</span>
           </h1>
         

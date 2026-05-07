@@ -22,30 +22,8 @@ export default function SearchTopics({ topics, questions, topicColors }) {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
-      <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-200 pb-6">
-        <h2 className="text-sm md:text-xl font-black uppercase tracking-widest text-slate-400 flex items-center gap-2">
-          <span className="w-1 h-4 md:h-6 bg-blue-600 rounded-full"></span>
-          Study Paths
-        </h2>
-        
-        <div className="relative group w-full md:w-72">
-          <input
-            type="text"
-            placeholder="Search topics..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm group-hover:shadow-md"
-          />
-          <svg className="absolute right-3 top-2.5 h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
+    <div className="max-w-6xl mx-auto px-2 md:px-5 pb-10">
 
-        <div className="text-[10px] md:text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 flex items-center gap-1">
-          {filteredTopics.length} {filteredTopics.length === 1 ? 'Topic' : 'Topics'} Found
-        </div>
-      </div>
 
       {filteredTopics.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
