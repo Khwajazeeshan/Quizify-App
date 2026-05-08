@@ -26,35 +26,35 @@ export default function SearchTopics({ topics, questions, topicColors }) {
 
 
       {filteredTopics.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
           {filteredTopics.map((topic, index) => (
             <Link key={topic} href={`/quiz/${topic}`} className="group relative">
-              <div className={`h-full ${cardBgs[index % cardBgs.length]} border p-4 md:p-8 rounded-xl md:rounded-[2rem] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:bg-white group-hover:border-blue-200 relative overflow-hidden flex flex-col justify-between min-h-[130px] md:min-h-[200px]`}>
-                <div className={`absolute -right-8 -bottom-8 w-24 h-24 md:w-48 md:h-48 bg-gradient-to-br ${topicColors[topic.toLowerCase()] || topicColors.default} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`}></div>
+              <div className={`h-full ${cardBgs[index % cardBgs.length]} border p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:bg-white group-hover:border-blue-200 relative overflow-hidden flex flex-col justify-between min-h-[100px] md:min-h-[160px]`}>
+                <div className={`absolute -right-8 -bottom-8 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${topicColors[topic.toLowerCase()] || topicColors.default} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`}></div>
 
                 <div>
-                  <div className={`w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-gradient-to-br ${topicColors[topic.toLowerCase()] || topicColors.default} p-[2px] mb-3 md:mb-6 shadow-md shadow-slate-200`}>
-                    <div className="w-full h-full bg-white rounded-[7px] md:rounded-[14px] flex items-center justify-center">
-                      <span className="text-sm md:text-2xl font-black uppercase leading-none text-slate-800">{topic[0]}</span>
+                  <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${topicColors[topic.toLowerCase()] || topicColors.default} p-[2px] mb-2 md:mb-4 shadow-md shadow-slate-200`}>
+                    <div className="w-full h-full bg-white rounded-[7px] md:rounded-[10px] flex items-center justify-center">
+                      <span className="text-sm md:text-xl font-black uppercase leading-none text-slate-800">{topic[0]}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-base md:text-3xl font-black capitalize mb-1 md:mb-2 tracking-tight group-hover:text-blue-600 transition-colors text-slate-800">
+                  <h3 className="text-sm md:text-lg font-black capitalize mb-1 tracking-tight group-hover:text-blue-600 transition-colors text-slate-800">
                     {topic.replace(/_/g, ' ')}
                   </h3>
-                  <p className="hidden md:block text-xs md:text-sm text-slate-400 font-medium leading-normal mb-4 line-clamp-2 md:line-clamp-none">
+                  <p className="hidden md:block text-[10px] text-slate-400 font-medium leading-tight mb-2 line-clamp-2">
                     Practice questions for {topic} mastery.
                   </p>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="text-base md:text-2xl font-black text-slate-800">{questions[topic].length}</span>
-                    <span className="text-[7px] md:text-[10px] font-black uppercase tracking-widest text-slate-400 leading-none">MCQs</span>
+                    <span className="text-sm md:text-xl font-black text-slate-800 leading-none">{questions[topic].length}</span>
+                    <span className="text-[7px] md:text-[8px] font-black uppercase tracking-widest text-slate-400 leading-none mt-1">MCQs</span>
                   </div>
 
-                  <div className="w-7 h-7 md:w-12 md:h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300 border border-slate-100 group-hover:border-blue-600">
-                    <svg className="w-3.5 h-3.5 md:w-6 md:h-6 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 md:w-8 md:h-8 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300 border border-slate-100 group-hover:border-blue-600">
+                    <svg className="w-3 h-3 md:w-4 md:h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </div>

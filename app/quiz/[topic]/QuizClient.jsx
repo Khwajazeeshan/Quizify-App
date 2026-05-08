@@ -186,7 +186,7 @@ export default function QuizClient({ topic, topicQuestions }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 p-4 md:p-8 relative overflow-hidden flex flex-col items-center">
+    <div className="min-h-screen bg-slate-50 text-slate-900 p-2 md:p-4 relative overflow-hidden flex flex-col items-center">
       {/* Dynamic Background Blobs */}
       <div className="fixed inset-0 -z-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-blue-100/40 blur-[120px] rounded-full animate-float"></div>
@@ -195,7 +195,7 @@ export default function QuizClient({ topic, topicQuestions }) {
 
       <div className="w-full max-w-4xl relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6 bg-white/40 backdrop-blur-xl p-4 md:p-6 rounded-[2rem] border border-white/60 shadow-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-3 bg-white/40 backdrop-blur-xl p-3 md:p-4 rounded-[1.5rem] border border-white/60 shadow-sm">
           <div className="flex items-center gap-4 w-full md:w-auto">
             <Link href="/" className="w-12 h-12 bg-white hover:bg-slate-50 rounded-2xl flex items-center justify-center transition-all border border-slate-100 shadow-sm group">
               <svg className="w-6 h-6 text-slate-400 group-hover:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
@@ -225,22 +225,22 @@ export default function QuizClient({ topic, topicQuestions }) {
         </div>
 
         {/* Question Card */}
-        <div className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-16 border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] relative overflow-hidden group">
+        <div className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-4 md:p-10 border border-slate-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-blue-600/10 to-transparent"></div>
           
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-4">
             <div className="px-3 py-2 bg-blue-50 rounded-full text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] border border-blue-100/50">
               Question Segment
             </div>
           </div>
           
-          <h2 className="text-xl md:text-4xl font-black mb-12 md:mb-10 text-center leading-[1.1] text-slate-800 tracking-tight">
+          <h2 className="text-xl md:text-3xl font-black mb-6 md:mb-8 text-center leading-[1.1] text-slate-800 tracking-tight">
             {currentQuestion.question}
           </h2>
 
-          <div className="grid grid-cols-1 gap-2 mb-6 md:mb-10">
+          <div className="grid grid-cols-1 gap-2 mb-4 md:mb-6">
             {shuffledOptions.map((option, idx) => {
-              let buttonStyle = "group relative p-3 md:p-8 rounded-3xl transition-all duration-300 text-left overflow-hidden border-2 flex items-center gap-5 ";
+              let buttonStyle = "group relative p-2 md:p-4 rounded-2xl transition-all duration-300 text-left overflow-hidden border-2 flex items-center gap-4 ";
               
               if (!answered) {
                 buttonStyle += "bg-slate-50/50 border-slate-100 hover:border-blue-500 hover:bg-blue-50/50 hover:shadow-xl hover:shadow-blue-900/5 active:scale-[0.98] cursor-pointer";
@@ -259,7 +259,7 @@ export default function QuizClient({ topic, topicQuestions }) {
                   <span className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center text-sm md:text-lg font-black border-2 transition-all duration-300 shrink-0 ${answered ? (option === currentQuestion.correct ? 'bg-green-500 border-green-500 text-white shadow-lg shadow-green-200' : (option === selectedAnswer ? 'bg-red-500 border-red-500 text-white shadow-lg shadow-red-200' : 'bg-transparent border-slate-200 text-slate-300')) : 'bg-white border-slate-200 text-slate-400 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-200'}`}>
                     {String.fromCharCode(65 + idx)}
                   </span>
-                  <span className="font-bold text-base md:text-xl text-slate-700 leading-tight flex-1">{option}</span>
+                  <span className="font-bold text-sm md:text-lg text-slate-700 leading-tight flex-1">{option}</span>
                   
                   {answered && option === currentQuestion.correct && (
                     <div className="absolute right-6 top-1/2 -translate-y-1/2 text-green-500 animate-in zoom-in duration-300">
@@ -272,9 +272,9 @@ export default function QuizClient({ topic, topicQuestions }) {
           </div>
 
           {answered && (
-            <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 space-y-8">
+            <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 space-y-4">
               {currentQuestion.explanation && (
-                <div className="p-6 md:p-8 bg-blue-600 rounded-[2rem] text-white shadow-2xl shadow-blue-200 relative overflow-hidden group">
+                <div className="p-4 md:p-6 bg-blue-600 rounded-[1.5rem] text-white shadow-2xl shadow-blue-200 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-3xl -mr-10 -mt-10"></div>
                   <h4 className="font-black uppercase text-[10px] tracking-[0.3em] mb-3 flex items-center gap-2 opacity-80">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -285,7 +285,7 @@ export default function QuizClient({ topic, topicQuestions }) {
               )}
               
               <div className="flex justify-center">
-                <button onClick={handleNext} className="bg-slate-900 hover:bg-black text-white px-12 py-5 rounded-2xl transition-all font-black text-sm md:text-xl shadow-2xl hover:shadow-slate-400 active:scale-95 group flex items-center gap-3">
+                <button onClick={handleNext} className="bg-slate-900 hover:bg-black text-white px-8 py-4 rounded-xl transition-all font-black text-sm md:text-lg shadow-2xl hover:shadow-slate-400 active:scale-95 group flex items-center gap-3">
                   {currentQuestionIndex + 1 === shuffledQuestions.length ? 'Finalize Result' : 'Next Question'}
                   <svg className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </button>
@@ -295,7 +295,7 @@ export default function QuizClient({ topic, topicQuestions }) {
         </div>
         
         {/* Footer info */}
-        <div className="mt-12 text-center">
+        <div className="mt-6 text-center">
           <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">Powered by Quizify Pro Intelligence</p>
         </div>
       </div>
