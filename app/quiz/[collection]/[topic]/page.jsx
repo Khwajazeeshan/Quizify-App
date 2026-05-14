@@ -3,7 +3,8 @@ import QuizClient from './QuizClient';
 
 export async function generateMetadata({ params }) {
   const { topic } = await params;
-  const capitalizedTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
+  const decodedTopic = decodeURIComponent(topic);
+  const capitalizedTopic = decodedTopic.charAt(0).toUpperCase() + decodedTopic.slice(1);
   
   return {
     title: `${capitalizedTopic} Quiz`,
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-async function getTopicQuestions(topic) {
+async function getTopicQuestions(collectionName, topic) {
   const decodedTopic = decodeURIComponent(topic);
   const client = await clientPromise;
   const db = client.db();
@@ -23,14 +24,14 @@ async function getTopicQuestions(topic) {
   // First, try a direct query for better performance
   const directQuery = {};
   directQuery[`questions.${decodedTopic}`] = { $exists: true };
-  const directData = await db.collection('questions').findOne(directQuery);
+  const directData = await db.collection(collectionName).findOne(directQuery);
   
   if (directData?.questions?.[decodedTopic]) {
     return directData.questions[decodedTopic];
   }
 
   // Fallback: Fetch all documents and search keys flexibly (e.g., spaces vs underscores, case-insensitivity)
-  const cursor = db.collection('questions').find({ questions: { $exists: true } });
+  const cursor = db.collection(collectionName).find({ questions: { $exists: true } });
   const allDocs = await cursor.toArray();
   
   for (const doc of allDocs) {
@@ -53,9 +54,9 @@ async function getTopicQuestions(topic) {
 }
 
 export default async function QuizPage({ params }) {
-  const { topic } = await params;
+  const { collection, topic } = await params;
   const decodedTopic = decodeURIComponent(topic);
-  const topicQuestions = await getTopicQuestions(decodedTopic);
+  const topicQuestions = await getTopicQuestions(collection, decodedTopic);
 
   return <QuizClient topic={decodedTopic} topicQuestions={topicQuestions} />;
 }
