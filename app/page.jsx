@@ -66,30 +66,30 @@ export default async function Home() {
       </div>
 
       {/* Sections Grid */}
-      <div className="max-w-6xl mx-auto px-4 md:px-8 pb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-8 pb-16 md:pb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {sections.map((section, index) => (
             <Link key={section.id} href={`/section/${section.collection}`} className="group relative">
-              <div className={`h-full ${cardBgs[index % cardBgs.length]} border-2 p-6 rounded-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:bg-white group-hover:border-blue-300 relative overflow-hidden flex flex-col justify-between min-h-[200px]`}>
-                <div className={`absolute -right-8 -bottom-8 w-32 h-32 bg-gradient-to-br ${sectionColors[section.id.toLowerCase()] || sectionColors.default} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity`}></div>
+              <div className={`h-full ${cardBgs[index % cardBgs.length]} border-2 p-3 sm:p-4 md:p-6 rounded-2xl sm:rounded-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:bg-white group-hover:border-blue-300 relative overflow-hidden flex flex-col justify-between min-h-[160px] sm:min-h-[180px] md:min-h-[200px]`}>
+                <div className={`absolute -right-8 -bottom-8 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br ${sectionColors[section.id.toLowerCase()] || sectionColors.default} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity`}></div>
 
                 <div>
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${sectionColors[section.id.toLowerCase()] || sectionColors.default} p-[2px] mb-6 shadow-lg shadow-slate-200`}>
-                    <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-xl font-black text-slate-800 uppercase">
+                  <div className={`w-10 sm:w-12 h-10 sm:h-12 rounded-2xl bg-gradient-to-br ${sectionColors[section.id.toLowerCase()] || sectionColors.default} p-[2px] mb-3 sm:mb-6 shadow-lg shadow-slate-200`}>
+                    <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-lg sm:text-xl font-black text-slate-800 uppercase">
                       {section.displayName[0]}
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-black mb-2 tracking-tight group-hover:text-blue-600 transition-colors text-slate-800">
+                  <h3 className="text-base sm:text-lg md:text-2xl font-black mb-1 sm:mb-2 tracking-tight group-hover:text-blue-600 transition-colors text-slate-800 line-clamp-2">
                     {section.displayName}
                   </h3>
               
                 </div>
 
-                <div className="mt-6 flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-400">Preparation Mode</span>
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300 border border-slate-100 group-hover:border-blue-600 group-hover:shadow-lg">
-                    <svg className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mt-3 sm:mt-6 flex items-center justify-between gap-2">
+                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-400 line-clamp-1">Preparation</span>
+                  <div className="w-8 sm:w-10 h-8 sm:h-10 bg-white rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300 border border-slate-100 group-hover:border-blue-600 group-hover:shadow-lg flex-shrink-0">
+                    <svg className="w-4 sm:w-5 h-4 sm:h-5 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </div>
