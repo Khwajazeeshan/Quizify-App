@@ -67,7 +67,7 @@ export default async function Home() {
 
       {/* Sections Grid */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {sections.map((section, index) => (
             <Link key={section.id} href={`/section/${section.collection}`} className="group relative">
               <div className={`h-full ${cardBgs[index % cardBgs.length]} border-2 p-6 rounded-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:bg-white group-hover:border-blue-300 relative overflow-hidden flex flex-col justify-between min-h-[200px]`}>
@@ -83,9 +83,7 @@ export default async function Home() {
                   <h3 className="text-2xl font-black mb-2 tracking-tight group-hover:text-blue-600 transition-colors text-slate-800">
                     {section.displayName}
                   </h3>
-                  <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                    Explore comprehensive chapters and MCQs for {section.displayName}.
-                  </p>
+              
                 </div>
 
                 <div className="mt-6 flex items-center justify-between">
