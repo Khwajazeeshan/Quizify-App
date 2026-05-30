@@ -22,7 +22,7 @@ export default function QuizClient({ topic, topicQuestions }) {
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showScore, setShowScore] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(25);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [userAnswers, setUserAnswers] = useState([]);
 
   const currentQuestion = shuffledQuestions[currentQuestionIndex];
@@ -54,7 +54,7 @@ export default function QuizClient({ topic, topicQuestions }) {
       setCurrentQuestionIndex(nextQuestion);
       setAnswered(false);
       setSelectedAnswer(null);
-      setTimeLeft(25);
+      setTimeLeft(30);
     } else {
       setShowScore(true);
     }
